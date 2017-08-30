@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一刻</title>
+    <link rel="stylesheet" href="./public/css/main.css" >
+</head>
+<body ng-app="Yike">
+<div class="viewport">
+    <!--<div ng-controller="DemoController"></div>-->
+
+    <!--侧边导航-->
+    <div ng-class="{navs:true,collapse:collapsed}" ng-controller="NavController">
+        <dl>
+            <dt class="login">
+                <div class="avatar">
+                    <img src="./public/images/avatar.png">
+                </div>
+                <span>登录</span>
+            </dt>
+            <dd ng-class="{active: index == key}" ng-repeat="(key,nav) in navs">
+                <a href="{{nav.link}}" ng-click="toggle()" class="{{nav.icon}}">
+                    <span>{{nav.text}}</span>
+                </a>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="container">
+        <div ng-class="{header: true,collapse :collapsed}">
+            <a href="javasctipt:;" ng-click="toggle()" class="menu icon-menu"></a>
+            <h2>{{title}}</h2>
+            <a href="javascript:;" class="search icon-search"></a>
+        </div>
+        <div ng-class="{body: ture, collapse:collapsed}">
+            <div loading class = "loading" ng-hide="loaded" src = "./public/images/loading.gif"></div>
+            <div ng-view></div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-route/angular-route.js"></script>
+<script src="./scripts/app.js"></script>
+<script src="./scripts/controllers.js"></script>
+<script src="./scripts/directives.js"></script>
+
+</body>
+</html>
